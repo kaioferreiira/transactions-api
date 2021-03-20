@@ -1,5 +1,6 @@
 package br.com.transaction.domain.transaction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,11 +11,7 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -29,7 +26,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Document("transaction")
 public class Transaction implements Serializable {
 
-    private static final long serialVersionUID = 7647720705741047036L;
+    private static final long serialVersionUID = 3275599364607868470L;
 
     @Id
     @Indexed(unique = true)
@@ -39,7 +36,7 @@ public class Transaction implements Serializable {
     @Schema(description = "This is the Anime's name", example = "Tensei Shittara Slime Datta Ken", required = true)
     private BigDecimal valor;
 
-//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime data;
 

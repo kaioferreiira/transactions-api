@@ -12,7 +12,7 @@ import java.io.Serializable;
 @ToString
 public class Conta implements Serializable {
 
-    private static final long serialVersionUID = 2806412403585360625L;
+    private static final long serialVersionUID = -2946486462330818827L;
 
     @NotNull(message = "Informar o código da Agência.")
     private Long codigoAgencia;
