@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: ${TRANSACTION_API:transaction-api}
+  data:
+    mongodb:
+      host: ${DBAAS_MONGODB_HOSTS:localhost}
+      port: ${DBAAS_MONGODB_PORT:27017}
+      database: ${DBAAS_MONGODB_NAME:transaction-api}
+      username: ${DBAAS_MONGODB_USER:test}
+      password: ${DBAAS_MONGODB_PASSWORD:123}
