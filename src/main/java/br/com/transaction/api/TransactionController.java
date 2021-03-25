@@ -2,6 +2,7 @@ package br.com.transaction.api;
 
 
 import br.com.transaction.domain.dto.RequisicaoTransacaoDTO;
+import br.com.transaction.domain.dto.UpdateTransactionDTO;
 import br.com.transaction.domain.transaction.Transaction;
 import br.com.transaction.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -59,8 +60,8 @@ public class TransactionController {
   }
 
   @PutMapping
-  public ResponseEntity<Void> replace(@RequestBody Transaction transaction) {
-    transactionService.replace(transaction);
+  public ResponseEntity<Void> replace(@RequestBody UpdateTransactionDTO updateTransactionDTO) {
+    transactionService.replace(updateTransactionDTO);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 

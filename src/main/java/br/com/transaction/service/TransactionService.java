@@ -1,6 +1,7 @@
 package br.com.transaction.service;
 
 import br.com.transaction.domain.dto.RequisicaoTransacaoDTO;
+import br.com.transaction.domain.dto.UpdateTransactionDTO;
 import br.com.transaction.domain.transaction.SituacaoEnum;
 import br.com.transaction.domain.transaction.Transaction;
 import br.com.transaction.exception.BadRequestException;
@@ -46,10 +47,11 @@ public class TransactionService {
     return transactionRepository.findAll();
   }
 
-  public void replace(Transaction transaction) {
-    Transaction savedTransaction = findByIdOrThrowBadRequestException(transaction.getId());
-//    Transaction anime = AnimeMapper.INSTANCE.toAnime(animePutRequestBody);
-    transaction.setId(transaction.getId());
+  public void replace(UpdateTransactionDTO updateTransactionDTO) {
+
+    Transaction savedTransaction = findByIdOrThrowBadRequestException(updateTransactionDTO.getId());
+    Transaction transaction = TransactionMapper.INSTANCE.toTransaction(updateTransactionDTO);
+    transaction.setId(savedTransaction.getId());
     transactionRepository.save(transaction);
   }
 
