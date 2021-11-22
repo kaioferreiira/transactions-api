@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: ${TRANSACTION_API:transaction-api}
+    env: dev
   main:
     banner-mode: "off"
 
@@ -15,6 +16,3 @@ spring:
       username: ${DBAAS_MONGODB_USER:test}
       password: ${DBAAS_MONGODB_PASSWORD:123}
 
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
